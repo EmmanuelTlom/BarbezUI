@@ -1,6 +1,6 @@
 <template>
   <q-page class="container">
-    <div class="row justify-between items-center">
+    <div class="row q-mt-lg justify-between items-center">
       <div>
         <h1 class="maintext">Barbers Shops Near You</h1>
         <p class="section_small_text">
@@ -15,9 +15,41 @@
     </div>
 
     <section class="barbers">
-      <div v-for="(barber, index) in barbers" :key="index">
+      <Splide
+        :options="{
+          rewind: true,
+          gap: 30,
+          pagination: false,
+          type: 'loop',
+          arrows: true,
+          perPage: 3,
+          autoScroll: {
+            speed: 0.5,
+          },
+          breakpoints: {
+            640: {
+              perPage: 1,
+              gap: 20,
+            },
+            1000: {
+              perPage: 2,
+            },
+            1454: {
+              perPage: 3,
+            },
+            2000: {
+              perPage: 3,
+            },
+          },
+        }"
+      >
+        <SplideSlide v-for="(barber, index) in barbers" :key="index">
+          <BarbersComp :barber="barber" />
+        </SplideSlide>
+      </Splide>
+      <!-- <div v-for="(barber, index) in barbers" :key="index">
         <BarbersComp :barber="barber" />
-      </div>
+      </div> -->
     </section>
 
     <section>
@@ -29,25 +61,27 @@
 </template>
 
 <script setup>
+import { Splide, SplideSlide } from "@splidejs/vue-splide";
+import "@splidejs/vue-splide/css";
 import BarbersComp from "src/components/BarbersComp.vue";
 import BarbersCard from "src/components/BarberCard.vue";
 import { ref } from "vue";
 
 let barbers = ref([
   {
-    img: "../assets/barber1.png",
+    img: "barber1",
     name: "Sam & Co Barbers",
     address: "No 14 Adedamola Road Barnawa Kaduna State.",
     distance: "4.5 Miles Away.",
   },
   {
-    img: "../assets/barber2.png",
+    img: "barber2",
     name: "Sam & Co Barbers",
     address: "No 14 Adedamola Road Barnawa Kaduna State.",
     distance: "4.5 Miles Away.",
   },
   {
-    img: "../assets/barber3.png",
+    img: "barber3",
     name: "Sam & Co Barbers",
     address: "No 14 Adedamola Road Barnawa Kaduna State.",
     distance: "4.5 Miles Away.",

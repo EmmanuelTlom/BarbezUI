@@ -1,24 +1,30 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <header class="row items-center justify-between">
-      <nav class="nav">
+    <header
+      :class="
+        this.$router.currentRoute.value.name === 'welcome'
+          ? 'white header q-pa-md container '
+          : 'header q-pa-md container'
+      "
+    >
+      <nav class="nav row items-center justify-between">
         <h1 class="logo">
           Barberz <br />
           Spot
         </h1>
 
-        <ul>
+        <ul style="gap: 2rem" class="row items-center">
           <li>
-            <router-link class="nav_link">Home</router-link>
+            <router-link to="" class="nav_link">Home</router-link>
           </li>
           <li>
-            <router-link class="nav_link">About</router-link>
+            <router-link to="" class="nav_link">About</router-link>
           </li>
           <li>
-            <router-link class="nav_link">Our Services</router-link>
+            <router-link to="" class="nav_link">Our Services</router-link>
           </li>
           <li>
-            <router-link class="nav_link">Contact Us</router-link>
+            <router-link to="" class="nav_link">Contact Us</router-link>
           </li>
         </ul>
 

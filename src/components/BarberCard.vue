@@ -1,7 +1,7 @@
 <template>
-  <div style="gap: 1rem" class="row items-center no-wrap">
+  <div style="gap: 1rem" class="card row items-center no-wrap">
     <div class="img">
-      <img :src="barber.img" alt="" />
+      <img :src="`/src/assets/${barber.img}.png`" alt="" />
     </div>
     <div class="card_details">
       <div>
@@ -19,7 +19,7 @@
         <div class="row q-mt-md justify-between items-center">
           <a class="view_small" href="">View on Map</a>
           <p class="card_small_text location">
-            {{ barber.location }}
+            {{ barber.distance }}
           </p>
         </div>
       </div>
@@ -63,6 +63,7 @@
 </template>
 
 <script setup>
+import img1 from "../assets/barber1.png";
 const props = defineProps({
   barber: Object,
 });
