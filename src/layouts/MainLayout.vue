@@ -19,7 +19,7 @@
           Spot
         </h1>
 
-        <ul style="gap: 2rem" class="row items-center">
+        <ul v-if="$q.screen.gt.xs" style="gap: 2rem" class="row items-center">
           <li>
             <router-link to="" class="nav_link">Home</router-link>
           </li>
@@ -51,10 +51,56 @@
           >
             Sign Up
           </q-btn>
+          <q-btn
+            v-if="!$q.screen.gt.xs"
+            flat
+            @click="drawer = !drawer"
+            round
+            :class="
+              this.$router.currentRoute.value.name === 'welcome'
+                ? 'text-white'
+                : ''
+            "
+            dense
+            icon="menu"
+          />
         </div>
       </nav>
     </header>
+    <q-drawer
+      v-model="drawer"
+      :width="200"
+      :breakpoint="500"
+      bordered
+      :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
+    >
+      <q-scroll-area class="fit">
+        <h1
+          :class="
+            this.$router.currentRoute.value.name === 'welcome'
+              ? 'logo q-pt-lg q-px-sm'
+              : 'text-black logo q-pt-xl q-px-sm'
+          "
+        >
+          Barberz Spot
+        </h1>
 
+        <q-list class="q-px-sm q-pt-md">
+          <q-item clickable v-ripple>
+            <q-item-section> Home </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple>
+            <q-item-section> About </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple>
+            <q-item-section> Our services </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple>
+            <q-item-section> Contact us </q-item-section>
+          </q-item>
+        </q-list>
+      </q-scroll-area>
+    </q-drawer>
     <q-dialog v-model="loginModal">
       <q-card class="bg-black q-px-md q-py-lg modal">
         <h1 class="maintext q-mb-md text-center text-white">
@@ -183,7 +229,9 @@
       </q-card>
     </q-dialog>
 
-    <q-page-container>
+    <q-page-container
+      :class="this.$router.currentRoute.value.name === 'welcome' ? '' : 'padd'"
+    >
       <router-view />
     </q-page-container>
   </q-layout>
@@ -200,6 +248,7 @@ export default defineComponent({
 
     return {
       leftDrawerOpen,
+      drawer: ref(false),
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },

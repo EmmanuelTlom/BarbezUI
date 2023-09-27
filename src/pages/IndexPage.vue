@@ -15,34 +15,7 @@
     </div>
 
     <section class="barbers">
-      <Splide
-        :options="{
-          rewind: true,
-          gap: 30,
-          pagination: false,
-          type: 'loop',
-          arrows: true,
-          perPage: 3,
-          autoScroll: {
-            speed: 0.5,
-          },
-          breakpoints: {
-            640: {
-              perPage: 1,
-              gap: 20,
-            },
-            1000: {
-              perPage: 2,
-            },
-            1454: {
-              perPage: 3,
-            },
-            2000: {
-              perPage: 3,
-            },
-          },
-        }"
-      >
+      <Splide :options="options">
         <SplideSlide v-for="(barber, index) in barbers" :key="index">
           <BarbersComp :barber="barber" />
         </SplideSlide>
@@ -66,7 +39,31 @@ import "@splidejs/vue-splide/css";
 import BarbersComp from "src/components/BarbersComp.vue";
 import BarbersCard from "src/components/BarberCard.vue";
 import { ref } from "vue";
+let rating = ref(3);
 
+let options = ref({
+  rewind: true,
+  gap: 30,
+  pagination: false,
+  type: "loop",
+  arrows: true,
+  perPage: 3,
+  breakpoints: {
+    640: {
+      perPage: 1,
+      gap: 20,
+    },
+    1000: {
+      perPage: 2,
+    },
+    1454: {
+      perPage: 3,
+    },
+    2000: {
+      perPage: 3,
+    },
+  },
+});
 let barbers = ref([
   {
     img: "barber1",

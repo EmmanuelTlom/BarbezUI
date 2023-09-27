@@ -44,7 +44,17 @@ section {
 }
 
 // utility
+.q-page-container.padd {
+  padding-top: 6rem;
+}
 
+.card {
+  margin: 3rem 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
 .splide__arrow {
   background: #000 !important;
   width: 48px !important;
@@ -465,6 +475,37 @@ address {
   border-bottom: 4px solid white;
 }
 
+.q-card {
+  .subtext,
+  .card_small_text {
+    color: white;
+  }
+
+  .service_list {
+    color: white;
+    max-width: 100%;
+
+    .text-secondary,
+    .section_subtext,
+    .small_text.smaller {
+      color: white !important;
+    }
+
+    .service_list_item {
+      border-bottom: 1px solid white;
+    }
+
+    .q-btn.book_service {
+      color: white;
+      font-size: 11px;
+      transition: all 0.5s ease-in-out;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
 .q-card.modal {
   border-radius: 30px;
   background: #111;
@@ -528,5 +569,137 @@ address {
 
   .invest {
     font-size: 16px;
+  }
+}
+
+// footer
+footer {
+  background: black;
+}
+.footer_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.footer_main {
+  color: #fff;
+  font-family: "customBold", sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.terms {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 172.4%; /* 20.688px */
+}
+
+.links {
+  ul {
+    li {
+      margin: 0.7rem 0;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .footer_grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer_main {
+    font-size: 20px;
+  }
+
+  .row {
+    flex-wrap: wrap;
+  }
+  section {
+    padding: 50px 0 20px;
+  }
+
+  .header nav .row {
+    gap: 0.5rem !important;
+
+    .q-btn {
+      font-size: 14px;
+      padding: 0.3rem 0.5rem;
+    }
+  }
+
+  .card p {
+    margin: 0.2rem 0;
+  }
+
+  .card_details {
+    .q-btn {
+      height: 40px;
+    }
+  }
+
+  .grid {
+    gap: 1rem;
+  }
+
+  .invest {
+    flex-wrap: wrap;
+  }
+
+  .hero_main {
+    font-size: 25px;
+  }
+  .section_paragraph {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .invest {
+    font-size: 13px;
+  }
+
+  .looking_for {
+    gap: 1rem !important;
+  }
+  .hero form {
+    gap: 1rem;
+  }
+
+  .service_list {
+    max-width: 100%;
+  }
+  .small_text.smaller {
+    font-size: 11px;
+  }
+  .q-btn.book_service {
+    font-size: 13px;
+  }
+
+  .q-page-container.padd {
+    padding-top: 3rem;
+  }
+  .maintext {
+    font-size: 20px;
+  }
+  .switch .q-btn,
+  form .q-btn {
+    font-size: 12px;
+  }
+  .modal .input_wrap {
+    padding: 0.5rem;
+  }
+
+  ::placeholder {
+    font-size: 10px;
   }
 }
