@@ -30,10 +30,13 @@
         <BarbersCard :barber="barber" />
       </div>
     </section>
+    <FooterComp id="contact" />
   </q-page>
 </template>
 
 <script setup>
+import FooterComp from "../components/FooterComp.vue";
+
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
 import "@splidejs/vue-splide/css";
 import BarbersComp from "src/components/BarbersComp.vue";

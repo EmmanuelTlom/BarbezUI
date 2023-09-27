@@ -51,7 +51,13 @@
       </div>
 
       <div style="gap: 1rem" class="row no-wrap justify-center">
-        <q-btn style="width: 100%" flat no-caps class="btn outline text-black">
+        <q-btn
+          :to="{ name: 'barber' }"
+          style="width: 100%"
+          flat
+          no-caps
+          class="btn outline text-black"
+        >
           More Info
         </q-btn>
         <q-btn style="width: 100%" flat no-caps class="bg-accent text-white">

@@ -8,29 +8,37 @@
       "
     >
       <nav class="nav row items-center justify-between">
-        <h1
-          :class="
-            this.$router.currentRoute.value.name === 'welcome'
-              ? 'logo'
-              : 'text-black logo'
-          "
+        <router-link to="/">
+          <h1
+            :class="
+              this.$router.currentRoute.value.name === 'welcome'
+                ? 'logo'
+                : 'text-black logo'
+            "
+          >
+            Barberz <br />
+            Spot
+          </h1></router-link
         >
-          Barberz <br />
-          Spot
-        </h1>
 
         <ul v-if="$q.screen.gt.xs" style="gap: 2rem" class="row items-center">
           <li>
             <router-link to="" class="nav_link">Home</router-link>
           </li>
-          <li>
-            <router-link to="" class="nav_link">About</router-link>
+          <li v-if="this.$router.currentRoute.value.name === 'welcome'">
+            <q-btn @click="goto('about')" flat no-caps class="nav_link"
+              >About</q-btn
+            >
           </li>
           <li>
-            <router-link to="" class="nav_link">Our Services</router-link>
+            <router-link :to="{ name: 'explore' }" class="nav_link"
+              >Explore</router-link
+            >
           </li>
           <li>
-            <router-link to="" class="nav_link">Contact Us</router-link>
+            <q-btn @click="goto('contact')" flat no-caps class="nav_link"
+              >Contact Us</q-btn
+            >
           </li>
         </ul>
 
@@ -70,7 +78,7 @@
     <q-drawer
       v-model="drawer"
       :width="200"
-      :breakpoint="500"
+      :breakpoint="600"
       bordered
       :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
     >
@@ -263,6 +271,10 @@ export default defineComponent({
   methods: {
     setUser(arg) {
       this.user = arg;
+    },
+
+    goto(arg) {
+      document.getElementById(arg).scrollIntoView({ behavior: "smooth" });
     },
   },
 });

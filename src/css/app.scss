@@ -618,7 +618,7 @@ footer {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .footer_main {
     font-size: 20px;
   }
@@ -686,7 +686,7 @@ footer {
   }
 
   .q-page-container.padd {
-    padding-top: 3rem;
+    padding-top: 5rem;
   }
   .maintext {
     font-size: 20px;
@@ -706,5 +706,11 @@ footer {
   .services .grid > div img:last-of-type {
     width: 28px;
     height: 28px;
+  }
+  .card.carousel {
+    max-width: 100%;
+  }
+  .img {
+    width: 100%;
   }
 }

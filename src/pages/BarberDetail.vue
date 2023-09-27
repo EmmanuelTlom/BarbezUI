@@ -220,10 +220,13 @@
     <section class="ratings">
       <RatingsComp v-for="n in 5" :key="n" />
     </section>
+    <FooterComp id="contact" />
   </q-page>
 </template>
 
 <script setup>
+import FooterComp from "../components/FooterComp.vue";
+
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
 import "@splidejs/vue-splide/css";
 import BarbersComp from "src/components/BarbersComp.vue";
@@ -254,3 +257,9 @@ let barbers = ref([
   },
 ]);
 </script>
+
+<style scoped>
+section:first-of-type {
+  padding: 30px 0;
+}
+</style>

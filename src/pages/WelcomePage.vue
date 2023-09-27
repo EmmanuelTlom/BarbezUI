@@ -39,7 +39,7 @@
     </div>
   </div>
 
-  <section class="container">
+  <section id="about" class="container">
     <div style="gap: 1rem" class="row no-wrap items-center">
       <div class="col-md-6 col-sm-6 col-xs-12">
         <div><img src="../assets/barb.png" alt="" /></div>
@@ -128,7 +128,7 @@
     </div>
   </section>
 
-  <FooterComp />
+  <FooterComp id="contact" />
 </template>
 
 <script setup>
